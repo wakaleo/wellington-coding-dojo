@@ -1,0 +1,4 @@
+.*UI
+BaseStory
+.*WebTest
+com\.wakaleo\.training\.babble\.webtest*\..*

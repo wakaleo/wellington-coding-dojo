@@ -1,0 +1,84 @@
+.header {
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 20px;
+	padding: 10px;
+	background-color: rgb(225, 225, 255);
+	border: solid 1px rgb(128, 128, 196);
+	font-family: sans-serif;
+	background-image: url("../images/logo.png");
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	height: 70px;
+}
+
+.header h2 {
+	margin: 0;
+	margin-left: 220px;
+	margin-top: 25px;
+	font-size: 1.5em;
+	font-weight: normal;
+	font-style: oblique;
+	color: rgb(0, 0, 128);
+}
+
+.header p {
+	margin: 0;
+	margin-left: 220px;
+	font-size: 0.9em;
+	color: rgb(0, 0, 128);
+}
+
+.content {
+	font-family: sans-serif;
+	margin-left: 20px;
+	margin-right: 20px;
+	padding: 10px;
+	background-color: rgb(240, 240, 256);
+	border: solid 1px rgb(128, 128, 196);
+}
+
+
+.upcoming {
+    font-size:0.95em;
+    border: solid 1px rgb(128, 128, 196);
+    padding: 2px;
+    background-color: #F0F0FF;
+}
+
+.upcoming-title a {
+    font-weight: bold;
+    color:  rgb(38, 111, 255);
+}
+
+.upcoming-length {
+    font-weight: bold;
+    color: blue;
+}
+
+.upcoming-date {
+    font-style: italic;
+}
+
+
+
+.alt-upcoming {
+    font-size:0.95em;
+    border: solid 1px rgb(128, 128, 196);
+    padding: 2px;
+    background-color: #FFFFD0;
+}
+
+.alt-upcoming-title a {
+    font-weight: bold;
+    color:  rgb(0,180,0);
+}
+
+.alt-upcoming-length {
+    font-weight: bold;
+    color:  green;
+}
+
+.alt-upcoming-date {
+    font-style: italic;
+}
