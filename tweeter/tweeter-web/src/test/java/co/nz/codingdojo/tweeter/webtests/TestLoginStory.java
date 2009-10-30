@@ -17,13 +17,22 @@ public class TestLoginStory extends AbstractBaseStory {
         assertTextPresent("Sign in");
     }
     
-    public void testWrongUsername() throws Exception {
+    public void testWrongUser() throws Exception {
     	beginAt("/");
         assertTextPresent("Sign in");
-        setTextField("username", "test");
+        setTextField("username", "wrong-user");
         setTextField("password", "tiger");
         submit();
-        assertTextPresent("oooh!");
+        assertTextPresent("Invalid username or password");
+    }
+    
+    public void testWrongPassword() throws Exception {
+    	beginAt("/");
+        assertTextPresent("Sign in");
+        setTextField("username", "scott");
+        setTextField("password", "wrong-password");
+        submit();
+        assertTextPresent("Invalid username or password");
     }
 
 }

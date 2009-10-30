@@ -18,7 +18,6 @@ public class LoginServiceImpl implements LoginService {
 	}
 
 	public TweeterUser login(String username, String password) throws InvalidLoginException {		
-		System.out.println("User Directory = " + userDirectory);
 		TweeterUser user = getUserDirectory().findUserByUsername(username);
 		if ((user == null) || (!user.getPassword().equals(password))) {
 			throw new InvalidLoginException();

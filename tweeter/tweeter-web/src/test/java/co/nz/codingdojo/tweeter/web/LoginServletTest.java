@@ -17,7 +17,9 @@ public class LoginServletTest {
 	private MockHttpServletRequest request;
 	private MockHttpServletResponse response;		
 	private LoginServlet loginServlet;		
+    private TweeterUser scottTiger;
 
+	
 	@Before 
 	public void setupRequestResponseObjects() throws Exception {
 		request = new MockHttpServletRequest();
@@ -25,9 +27,9 @@ public class LoginServletTest {
 		loginServlet = new LoginServlet();		
 		LoginService loginService = mock(LoginService.class);
 		loginServlet.setLoginService(loginService);
-		
-		when(loginService.login("scott", "tiger"))
-			.thenReturn(new TweeterUser("scott","tiger"));
+        scottTiger = new TweeterUser("scott","tiger");
+
+		when(loginService.login("scott", "tiger")).thenReturn(scottTiger);
 
 		when(loginService.login("invaliduser", "invalidpassword"))
 			.thenThrow(new InvalidLoginException());
@@ -36,7 +38,7 @@ public class LoginServletTest {
 	@Test
 	public void servletShouldForwardToHomePageIfUsernameAndPasswordOK() throws Exception {
 				
-		request.setParameter("username", "scott");
+        request.setParameter("username", "scott");
 		request.setParameter("password", "tiger");
 		
 		loginServlet.doPost(request, response);
@@ -51,10 +53,8 @@ public class LoginServletTest {
 		request.setParameter("password", "tiger");
 		
 		loginServlet.doPost(request, response);
-		TweeterUser user = (TweeterUser) request.getSession().getAttribute("tweeterUser");
-		assertThat(user, not(nullValue()));
-		assertThat(user.getUsername(), is("scott"));
-		assertThat(user.getPassword(), is("tiger"));
+        TweeterUser storedUser = (TweeterUser) request.getSession().getAttribute("tweeterUser");
+        assertThat(storedUser, is(scottTiger));
 	}
 
 	
@@ -89,6 +89,6 @@ public class LoginServletTest {
 		
 		loginServlet.doPost(request, response);
 		
-		assertThat((String)request.getSession().getAttribute("errorMessage"), is("oooh!"));	
+		assertThat((String)request.getAttribute("errorMessage"), is("Invalid username or password"));	
 	}
 }
