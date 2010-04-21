@@ -1,0 +1,112 @@
+<html xmlns:concordion="http://www.concordion.org/2007/concordion">
+<link href="../../../../concordion.css" rel="stylesheet" type="text/css" />
+<body>
+
+    <h1>Evolving Grid</h1>
+
+	<p>Cells should be born and die according to certain rules:</p>
+
+	<p>The universe should be initially void of life.</p>
+    <div class="example">
+    <h3>Examples</h3>
+    <p>The initial grid will look like this:
+       <pre concordion:assertEquals="inTheBeginning()">---
+---
+---</pre>
+    </p>
+    </div>
+    <p>A live cell with no neighbours should die in the next generation:</p>
+
+    <div class="example">
+    <h3>Examples</h3>
+    <table>
+     <tr>
+      <td>
+		<p>Given an initial grid like this:
+<pre concordion:set="#initialState">---
++++
+---</pre>
+</p>
+      </td>
+      <td>
+<p>The next generation grid should look like this:
+<pre concordion:assertEquals="nextGenerationFrom(#initialState)">---
+---
+---</pre>
+    </p>
+      </td>
+     </tr>
+    </table>
+</div>
+
+    <p>A live cell with only one neighbour should die in the next generation:</p>
+
+    <div class="example">
+    <h3>Examples</h3>
+    <table>
+     <tr>
+      <td>
+		<p>Given an initial grid like this:
+<pre concordion:set="#initialState">---
+++-
+---</pre>
+</p>
+      </td>
+      <td>
+<p>The next generation grid should look like this:
+<pre concordion:assertEquals="nextGenerationFrom(#initialState)">---
+---
+---</pre>
+    </p>
+      </td>
+     </tr>
+    </table>
+</div>
+
+
+    <p>A live cell with two neighbours should die in the next generation:</p>
+
+    <div class="example">
+    <h3>Examples</h3>
+    <table>
+     <tr>
+      <td>
+		<p>Given an initial grid like this:
+<pre concordion:set="#initialState">---
+++-
+++-</pre>
+</p>
+      </td>
+      <td>
+<p>The next generation grid should look like this:
+<pre concordion:assertEquals="nextGenerationFrom(#initialState)">---
+++-
+++-</pre>
+    </p>
+      </td>
+     </tr>
+    </table>
+
+    <table>
+     <tr>
+      <td>
+		<p>Given an initial grid like this:
+<pre concordion:set="#initialState">-+-
+-+-
+-+-</pre>
+</p>
+      </td>
+      <td>
+<p>The next generation grid should look like this:
+<pre concordion:assertEquals="nextGenerationFrom(#initialState)">---
++++
+---</pre>
+    </p>
+      </td>
+     </tr>
+    </table>
+
+</div>
+
+</body>
+</html>

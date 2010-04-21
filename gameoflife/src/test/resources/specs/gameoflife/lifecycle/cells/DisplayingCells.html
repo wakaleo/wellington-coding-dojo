@@ -1,0 +1,16 @@
+<html xmlns:concordion="http://www.concordion.org/2007/concordion">
+<link href="../../../../concordion.css" rel="stylesheet" type="text/css" />
+<body>
+
+    <h1>Displaying Cells</h1>
+
+	<p>Cells should be represented using '+' and '-' characters</p>
+    <div class="example">
+    <h3>Examples</h3>
+    <p>A living cell should be displayed as a
+       <span concordion:assertEquals="getLivingCell()">+</span> character.</p>
+    <p>A dead cell should be displayed as a
+       <span concordion:assertEquals="getDeadCell()">-</span> character.</p>
+	</div>
+</body>
+</html>
