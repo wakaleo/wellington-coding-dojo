@@ -54,7 +54,9 @@ public class Universe {
         String[] rows = splitInitialStateIntoRows(initialState);
         int rowIndex = 0;
         for(String row : rows) {
-            initializeRowOfCellsFromText(rowIndex++, row);
+            if (notBlank(row)) {
+            	initializeRowOfCellsFromText(rowIndex++, row);
+            }
         }
     }
 
@@ -62,11 +64,12 @@ public class Universe {
         int columnIndex = 0;
         rowContents = rowContents.trim();
         for(char cellValue : rowContents.toCharArray()) {
-			if ((rowContents.length() > 0) && (columnIndex < columnCount)) {
-	            grid.setCellAt(rowIndex, columnIndex, Cell.fromChar(cellValue));
-	            columnIndex++;
-			}
+            grid.setCellAt(rowIndex, columnIndex++, Cell.fromChar(cellValue));
         }
+    }
+    
+    private boolean notBlank(String row) {
+    	return ((row != null) && (row.length() > 0));
     }
 
     private String[] splitInitialStateIntoRows(String initialState) {

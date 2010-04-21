@@ -10,7 +10,8 @@
     <div class="example">
     <h3>Examples</h3>
     <p>The initial grid will look like this:
-       <pre concordion:assertEquals="inTheBeginning()">---
+       <pre concordion:assertEquals="inTheBeginning()">
+---
 ---
 ---</pre>
     </p>
@@ -23,8 +24,9 @@
      <tr>
       <td>
 		<p>Given an initial grid like this:
-<pre concordion:set="#initialState">---
-+++
+<pre concordion:set="#initialState">
+---
+-+-
 ---</pre>
 </p>
       </td>
@@ -47,14 +49,16 @@
      <tr>
       <td>
 		<p>Given an initial grid like this:
-<pre concordion:set="#initialState">---
+<pre concordion:set="#initialState">
+---
 ++-
 ---</pre>
 </p>
       </td>
       <td>
 <p>The next generation grid should look like this:
-<pre concordion:assertEquals="nextGenerationFrom(#initialState)">---
+<pre concordion:assertEquals="nextGenerationFrom(#initialState)">
+---
 ---
 ---</pre>
     </p>

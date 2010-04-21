@@ -15,6 +15,6 @@ public class DisplayingCellsTest {
     }
 
     public String getDeadCell() {
-        return ".";
+        return "-";
     }
 }
